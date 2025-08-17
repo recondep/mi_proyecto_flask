@@ -1,0 +1,25 @@
+import os
+
+# Nombre del proyecto
+project_name = "mi_proyecto_flask"
+
+# Crear la carpeta principal
+os.makedirs(project_name, exist_ok=True)
+
+# Crear archivos y carpetas dentro de la carpeta del proyecto
+files_and_dirs = [
+    "app.py",
+    "static/",
+    "requirements.txt",
+    ".gitignore"
+]
+
+for item in files_and_dirs:
+    path = os.path.join(project_name, item)
+    if item.endswith('/'):
+        os.makedirs(path, exist_ok=True)
+    else:
+        with open(path, 'w') as f:
+            f.write("")  # Crear un archivo vacío
+
+print(f"Estructura del proyecto '{project_name}' creada con éxito.")
